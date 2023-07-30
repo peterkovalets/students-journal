@@ -22,10 +22,12 @@ function App() {
       `Are you sure you want to delete ${student.name}?`
     );
 
-    shouldDelete &&
+    if (shouldDelete) {
+      if (id === selectedUserId) setSelectedUserId(null);
       setStudents((students) =>
         students.filter((student) => student.id !== id)
       );
+    }
   }
 
   function handleSelectUserId(id) {
